@@ -1,0 +1,11 @@
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\bin\Release\Imaginer.exe.config
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Styles\ButtonStyle.baml
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Styles\ScrollbarStyle.baml
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Styles\TextblockStyle.baml
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Styles\TextboxStyle.baml
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Views\HomeView.g.cs
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Views\MediaListView.g.cs
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\App.g.cs
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Imaginer_MarkupCompile.cache
+C:\Personal_Docs\Imaginer\Imaginer\Imaginer\obj\Release\Imaginer_MarkupCompile.lref

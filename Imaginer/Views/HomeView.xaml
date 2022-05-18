@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Imaginer.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Imaginer.Views"
+             xmlns:converter="clr-namespace:Imaginer.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Imaginer;component/Styles/ScrollbarStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Imaginer;component/Styles/TextblockStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Imaginer;component/Styles/TextboxStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Imaginer;component/Styles/ButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converter:LabelConverter x:Key="LabelConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Style="{StaticResource HeadingFontStyle}" 
+                   Text="{Binding Path=.,Converter={StaticResource LabelConverter},ConverterParameter=1}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Name="panelSearch" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBox Name="tbSearchBox" Style="{StaticResource MyWaterMarkStyle}" Tag="{Binding Path=.,Converter={StaticResource LabelConverter},ConverterParameter=3}"
+                     Width="400" HorizontalAlignment="Left" Text="{Binding SearchText,Mode=TwoWay}" KeyDown="tbSearchBox_KeyDown" FontSize="14" />
+            <Button Name="btnSearch" Style="{StaticResource BlueButtonWithHover}" Command="{Binding SearchTextCommand}" 
+                    Content="{Binding Path=.,Converter={StaticResource LabelConverter},ConverterParameter=2}" FontSize="14" HorizontalAlignment="Left"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

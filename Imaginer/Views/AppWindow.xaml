@@ -1,0 +1,50 @@
+﻿<Window x:Class="Imaginer.Views.AppWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Imaginer.Views"
+        mc:Ignorable="d"
+        Title="Imaginer" Height="300" Width="300" 
+        xmlns:converter ="clr-namespace:Imaginer.Converter"
+        xmlns:models="clr-namespace:Imaginer.ViewModel"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        WindowState="Maximized" 
+        >
+    <Window.Resources>
+        <converter:BooleanConfigurableVisibilityConverter x:Key="BooleanToVisibilityConverter" True="Visible" False="Collapsed"/>
+        <converter:BooleanConfigurableVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" True="Collapsed" False="Visible"/>
+
+
+        <DataTemplate DataType="{x:Type models:HomeViewModel}">
+            <local:HomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type models:MediaListViewModel}">
+            <local:MediaListView/>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="50" />-->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Name="gridBusyIndicator" Grid.Row="0" Visibility="{Binding ShowBusyIndicator,Converter={StaticResource BooleanToVisibilityConverter}}"
+              Panel.ZIndex="999">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <fa:ImageAwesome Grid.RowSpan="3" Panel.ZIndex="999" Grid.ColumnSpan="3" Icon="CircleOutlineNotch"
+                         Foreground="LightGray" Spin="True" Height="48" Width="48" SpinDuration="1.25" />
+        </Grid>
+        <ContentControl Grid.Row="0" x:Name="Pages" Content="{Binding SelectedViewModel}"
+                        Visibility="{Binding ShowBusyIndicator,Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+    </Grid>
+</Window>
